@@ -12,7 +12,7 @@ func GetAuthors(w http.ResponseWriter, r *http.Request) {
 
 	result := database.DB.Find(&authors)
 	if result.Error != nil {
-		util.RespondWithError(w, "Could not get clients.", http.StatusInternalServerError)
+		util.RespondWithError(w, "Could not get authors.", http.StatusInternalServerError)
 		return
 	}
 
