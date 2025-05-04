@@ -1,0 +1,34 @@
+services:
+  backend:
+    build:
+      context: ./src/
+      dockerfile: Dockerfile
+    container_name: editorial-backend
+    ports:
+      - "8080:8080"
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - app-network
+
+  db:
+    image: postgres:17
+    container_name: editorial-db
+    restart: always
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: editorial
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d editorial"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - app-network
+
+networks:
+  app-network:
