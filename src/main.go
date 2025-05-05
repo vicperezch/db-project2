@@ -18,6 +18,7 @@ func main() {
 	r.Get("/api/authors/", handler.GetAuthors)
 	r.Get("/api/employees/", handler.GetEmployees)
 	r.Get("/api/loans/", handler.GetLoans)
+	r.Get("/api/fines/", handler.GetFines)
 
 	http.ListenAndServe(":8080", r)
 
