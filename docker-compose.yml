@@ -15,6 +15,8 @@ services:
   db:
     image: postgres:17
     container_name: editorial-db
+    ports:
+      - "5432:5432"
     restart: always
     volumes:
       - ./db:/docker-entrypoint-initdb.d

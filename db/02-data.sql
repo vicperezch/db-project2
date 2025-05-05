@@ -662,7 +662,7 @@ INSERT INTO loans (id_client, id_employee, id_edition, loan_date, return_date) V
 (97, 97, 94, '2023-09-12', '2023-09-26'),
 (98, 98, 96, '2023-09-15', '2023-09-29'),
 (99, 99, 98, '2023-09-18', '2023-10-02'),
-(100, 100, 100, '2023-09-20', '2023-10-04');
+(99, 100, 100, '2023-09-20', '2023-10-04');
 
 INSERT INTO authors_publications (id_author, id_publication, is_main_author) VALUES
 (1, 1, TRUE),
