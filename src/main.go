@@ -25,10 +25,15 @@ func main() {
 	database.ConnectToDatabase()
 
 	r.Get("/api/clients/", handler.GetClients)
+	r.Get("/api/clients/csv", handler.ExportClientsToCSV)
 	r.Get("/api/authors/", handler.GetAuthors)
+	r.Get("/api/authors/csv", handler.ExportAuthorsToCSV)
 	r.Get("/api/employees/", handler.GetEmployees)
+	r.Get("/api/employees/csv", handler.ExportEmployeesToCSV)
 	r.Get("/api/loans/", handler.GetLoans)
+	r.Get("/api/loans/csv", handler.ExportLoansToCSV)
 	r.Get("/api/fines/", handler.GetFines)
+	r.Get("/api/fines/csv", handler.ExportFinesToCSV)
 
 	log.Println("API is ready")
 
